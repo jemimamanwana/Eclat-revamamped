@@ -1,0 +1,1926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Éclat Couture | The Pinnacle of Luxury Fashion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Global Styles */
+            :root {
+                --primary: #5D4037;
+                --primary-light: #8D6E63;
+                --primary-dark: #3E2723;
+                --accent: #D7CCC8;
+                --accent-dark: #A1887F;
+                --gold: #D4AF37;
+                --dark-gold: #A67C00;
+                --black: #121212;
+                --white: #F5F5F5;
+                --gray: #424242;
+                --light-gray: #757575;
+                --text: #E0E0E0;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Playfair Display', serif;
+            }
+
+            body {
+                background-color: var(--black);
+                color: var(--text);
+                overflow-x: hidden;
+                scroll-behavior: smooth;
+            }
+
+            ::selection {
+                background-color: var(--primary-light);
+                color: var(--white);
+            }
+
+            /* Typography */
+            h1, h2, h3, h4, h5, h6 {
+                font-weight: 500;
+                letter-spacing: 1.5px;
+                color: var(--accent);
+            }
+
+            p {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 1.2rem;
+                line-height: 1.8;
+                letter-spacing: 0.8px;
+                color: var(--text);
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            /* Buttons */
+            .btn {
+                display: inline-block;
+                padding: 18px 36px;
+                background-color: transparent;
+                color: var(--accent);
+                border: 1px solid var(--accent);
+                text-decoration: none;
+                font-size: 0.95rem;
+                letter-spacing: 2.5px;
+                transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+                cursor: pointer;
+                position: relative;
+                overflow: hidden;
+                z-index: 1;
+            }
+
+            .btn::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 0;
+                height: 100%;
+                background-color: var(--accent);
+                transition: width 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+                z-index: -1;
+            }
+
+            .btn:hover {
+                color: var(--primary-dark);
+            }
+
+            .btn:hover::before {
+                width: 100%;
+            }
+
+            .btn-accent {
+                background-color: var(--accent);
+                color: var(--primary-dark);
+                border: 1px solid var(--accent);
+            }
+
+            .btn-accent:hover {
+                color: var(--accent);
+            }
+
+            .btn-accent::before {
+                background-color: var(--primary-dark);
+            }
+
+            .btn-gold {
+                border-color: var(--gold);
+                color: var(--gold);
+            }
+
+            .btn-gold::before {
+                background-color: var(--gold);
+            }
+
+            .btn-gold:hover {
+                color: var(--primary-dark);
+            }
+
+            /* Header */
+            .announcement-bar {
+                background-color: var(--primary-dark);
+                color: var(--accent);
+                text-align: center;
+                padding: 14px 0;
+                font-size: 0.85rem;
+                letter-spacing: 3px;
+                text-transform: uppercase;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .announcement-bar::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            }
+
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 28px 6%;
+                position: relative;
+                background-color: var(--black);
+                z-index: 1000;
+                transition: all 0.4s ease;
+            }
+
+            .header.scrolled {
+                padding: 18px 6%;
+                box-shadow: 0 5px 30px rgba(0,0,0,0.2);
+                background-color: rgba(18, 18, 18, 0.95);
+                backdrop-filter: blur(10px);
+            }
+
+            .logo {
+                font-size: 2.4rem;
+                font-weight: 300;
+                letter-spacing: 6px;
+                color: var(--accent);
+                position: relative;
+            }
+
+            .logo::after {
+                content: 'COUTURE';
+                position: absolute;
+                bottom: -12px;
+                right: 0;
+                font-size: 0.6rem;
+                letter-spacing: 3px;
+                color: var(--gold);
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 40px;
+            }
+
+            .nav-links a {
+                color: var(--accent);
+                font-size: 0.9rem;
+                letter-spacing: 3px;
+                position: relative;
+                transition: color 0.4s;
+                text-transform: uppercase;
+                font-weight: 300;
+            }
+
+            .nav-links a:hover {
+                color: var(--gold);
+            }
+
+            .nav-links a::after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 1px;
+                bottom: -5px;
+                left: 0;
+                background-color: var(--gold);
+                transition: width 0.4s;
+            }
+
+            .nav-links a:hover::after {
+                width: 100%;
+            }
+
+            .header-icons {
+                display: flex;
+                gap: 28px;
+            }
+
+            .header-icons a {
+                color: var(--accent);
+                font-size: 1.2rem;
+                transition: all 0.4s;
+                position: relative;
+            }
+
+            .header-icons a:hover {
+                color: var(--gold);
+                transform: translateY(-2px);
+            }
+
+            .cart-count {
+                position: absolute;
+                top: -8px;
+                right: -8px;
+                background-color: var(--gold);
+                color: var(--primary-dark);
+                width: 18px;
+                height: 18px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.6rem;
+                font-weight: bold;
+            }
+
+            /* Mobile Menu */
+            .mobile-menu-btn {
+                display: none;
+                background: none;
+                border: none;
+                color: var(--accent);
+                font-size: 1.8rem;
+                cursor: pointer;
+                transition: all 0.3s;
+                z-index: 1001;
+            }
+
+            .mobile-menu-btn:hover {
+                color: var(--gold);
+            }
+
+            /* Hero Section */
+            .hero {
+                height: 100vh;
+                background-image: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                display: flex;
+                align-items: center;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .hero::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(45deg, rgba(30, 30, 30, 0.7), rgba(61, 39, 35, 0.8));
+            }
+
+            .hero-content {
+                position: relative;
+                z-index: 1;
+                padding: 0 10%;
+                max-width: 700px;
+            }
+
+            .hero h1 {
+                font-size: 5rem;
+                margin-bottom: 30px;
+                font-weight: 300;
+                letter-spacing: 8px;
+                line-height: 1.1;
+                text-transform: uppercase;
+                text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            }
+
+            .hero p {
+                margin-bottom: 40px;
+                font-size: 1.4rem;
+                max-width: 600px;
+            }
+
+            .hero-btns {
+                display: flex;
+                gap: 20px;
+            }
+
+            .scroll-down {
+                position: absolute;
+                bottom: 40px;
+                left: 50%;
+                transform: translateX(-50%);
+                color: var(--accent);
+                font-size: 1.5rem;
+                animation: bounce 2s infinite;
+                cursor: pointer;
+                z-index: 1;
+            }
+
+            @keyframes bounce {
+                0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+                40% {transform: translateY(-20px) translateX(-50%);}
+                60% {transform: translateY(-10px) translateX(-50%);}
+            }
+
+            /* Collections Section */
+            .section {
+                padding: 120px 8%;
+                position: relative;
+            }
+
+            .section-title {
+                text-align: center;
+                margin-bottom: 80px;
+                position: relative;
+            }
+
+            .section-title h2 {
+                font-size: 3rem;
+                letter-spacing: 5px;
+                display: inline-block;
+                padding-bottom: 20px;
+                text-transform: uppercase;
+            }
+
+            .section-title h2::after {
+                content: '';
+                position: absolute;
+                width: 100px;
+                height: 2px;
+                background: linear-gradient(90deg, transparent, var(--gold), transparent);
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .section-title p {
+                max-width: 700px;
+                margin: 20px auto 0;
+                font-size: 1.3rem;
+                color: var(--accent);
+            }
+
+            .collections-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 40px;
+            }
+
+            .collection-card {
+                position: relative;
+                overflow: hidden;
+                height: 600px;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+                transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+            }
+
+            .collection-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            }
+
+            .collection-card img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+            }
+
+            .collection-card:hover img {
+                transform: scale(1.1);
+            }
+
+            .collection-overlay {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                padding: 40px;
+                background: linear-gradient(to top, rgba(30, 30, 30, 0.9), transparent);
+            }
+
+            .collection-overlay h3 {
+                font-size: 2.2rem;
+                margin-bottom: 15px;
+                font-weight: 300;
+            }
+
+            .collection-overlay p {
+                font-size: 1.1rem;
+                margin-bottom: 25px;
+                color: var(--accent);
+            }
+
+            /* Featured Products */
+            .featured-products {
+                background-color: var(--primary-dark);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .featured-products::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url('https://www.transparenttextures.com/patterns/concrete-wall.png');
+                opacity: 0.05;
+                pointer-events: none;
+            }
+
+            .products-slider {
+                position: relative;
+                overflow: hidden;
+                padding: 0 5%;
+            }
+
+            .products-container {
+                display: flex;
+                transition: transform 0.7s cubic-bezier(0.215, 0.61, 0.355, 1);
+                gap: 40px;
+            }
+
+            .product-card {
+                min-width: calc(33.333% - 27px);
+                background-color: var(--black);
+                border: 1px solid var(--gray);
+                padding: 30px;
+                transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+                position: relative;
+            }
+
+            .product-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: 1px solid var(--gold);
+                opacity: 0;
+                transition: all 0.5s;
+                pointer-events: none;
+            }
+
+            .product-card:hover {
+                border-color: var(--gold);
+                transform: translateY(-15px);
+            }
+
+            .product-card:hover::before {
+                opacity: 1;
+                transform: scale(0.97);
+            }
+
+            .product-image {
+                height: 400px;
+                overflow: hidden;
+                margin-bottom: 25px;
+                position: relative;
+            }
+
+            .product-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+            }
+
+            .product-card:hover .product-image img {
+                transform: scale(1.08);
+            }
+
+            .product-badge {
+                position: absolute;
+                top: 15px;
+                right: 15px;
+                background-color: var(--gold);
+                color: var(--primary-dark);
+                padding: 8px 15px;
+                font-size: 0.8rem;
+                letter-spacing: 1.5px;
+                font-weight: 600;
+                z-index: 2;
+            }
+
+            .product-info h3 {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+                font-weight: 400;
+            }
+
+            .product-info p {
+                font-size: 1rem;
+                margin-bottom: 20px;
+                color: var(--accent);
+            }
+
+            .product-price {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .price {
+                font-size: 1.4rem;
+                color: var(--gold);
+                font-weight: 500;
+            }
+
+            .slider-nav {
+                display: flex;
+                justify-content: center;
+                gap: 15px;
+                margin-top: 50px;
+            }
+
+            .slider-dot {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background-color: var(--gray);
+                cursor: pointer;
+                transition: all 0.4s;
+                position: relative;
+            }
+
+            .slider-dot::before {
+                content: '';
+                position: absolute;
+                top: -3px;
+                left: -3px;
+                right: -3px;
+                bottom: -3px;
+                border: 1px solid var(--gold);
+                border-radius: 50%;
+                opacity: 0;
+                transition: opacity 0.4s;
+            }
+
+            .slider-dot.active {
+                background-color: var(--gold);
+                transform: scale(1.3);
+            }
+
+            .slider-dot.active::before {
+                opacity: 1;
+            }
+
+            /* Men's Luxury Section */
+            .mens-section {
+                display: flex;
+                gap: 60px;
+                align-items: center;
+                margin-bottom: 100px;
+            }
+
+            .mens-content {
+                flex: 1;
+                padding: 40px;
+                background-color: var(--primary-dark);
+                position: relative;
+                z-index: 1;
+            }
+
+            .mens-content::before {
+                content: '';
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                right: -20px;
+                bottom: -20px;
+                border: 1px solid var(--gold);
+                z-index: -1;
+                opacity: 0.5;
+            }
+
+            .mens-image {
+                flex: 1;
+                height: 700px;
+                overflow: hidden;
+                box-shadow: 20px 20px 60px rgba(0,0,0,0.3);
+            }
+
+            .mens-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+            }
+
+            .mens-image:hover img {
+                transform: scale(1.05);
+            }
+
+            .mens-content h2 {
+                font-size: 2.8rem;
+                margin-bottom: 40px;
+                font-weight: 300;
+                letter-spacing: 5px;
+                position: relative;
+                padding-bottom: 20px;
+            }
+
+            .mens-content h2::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 80px;
+                height: 2px;
+                background-color: var(--gold);
+            }
+
+            .mens-content p {
+                margin-bottom: 30px;
+            }
+
+            /* Luxury Watches Section */
+            .watches-section {
+                background-color: var(--black);
+                padding: 100px 8%;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .watches-section::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url('https://www.transparenttextures.com/patterns/diamond-upholstery.png');
+                opacity: 0.03;
+                pointer-events: none;
+            }
+
+            .watches-container {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 30px;
+                margin-top: 60px;
+            }
+
+            .watch-card {
+                background-color: var(--primary-dark);
+                padding: 30px;
+                border: 1px solid var(--gray);
+                transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .watch-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), transparent);
+                z-index: 0;
+            }
+
+            .watch-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+                border-color: var(--gold);
+            }
+
+            .watch-image {
+                height: 300px;
+                margin-bottom: 30px;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .watch-image img {
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+                transition: transform 0.7s cubic-bezier(0.215, 0.61, 0.355, 1);
+            }
+
+            .watch-card:hover .watch-image img {
+                transform: scale(1.1);
+            }
+
+            .watch-info h3 {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+                font-weight: 400;
+            }
+
+            .watch-info p {
+                font-size: 1rem;
+                margin-bottom: 20px;
+                color: var(--accent);
+            }
+
+            .watch-price {
+                font-size: 1.5rem;
+                color: var(--gold);
+                font-weight: 500;
+                margin-bottom: 25px;
+            }
+
+            .watch-specs {
+                margin-top: 20px;
+                border-top: 1px solid var(--gray);
+                padding-top: 20px;
+            }
+
+            .spec-item {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 10px;
+                font-size: 0.9rem;
+            }
+
+            .spec-name {
+                color: var(--accent);
+            }
+
+            .spec-value {
+                color: var(--gold);
+                font-weight: 500;
+            }
+
+            /* Couture Experience */
+            .couture-experience {
+                background-image: url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80');
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                height: 800px;
+                display: flex;
+                align-items: center;
+                position: relative;
+            }
+
+            .couture-experience::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(45deg, rgba(30, 30, 30, 0.8), rgba(61, 39, 35, 0.9));
+            }
+
+            .couture-content {
+                position: relative;
+                z-index: 1;
+                max-width: 600px;
+                margin-left: 10%;
+            }
+
+            .couture-content h2 {
+                font-size: 3.5rem;
+                margin-bottom: 40px;
+                font-weight: 300;
+                letter-spacing: 6px;
+                line-height: 1.2;
+            }
+
+            .couture-content p {
+                margin-bottom: 40px;
+                font-size: 1.3rem;
+            }
+
+            /* Testimonials */
+            .testimonials {
+                background-color: var(--primary-dark);
+                text-align: center;
+                padding: 120px 8%;
+                position: relative;
+            }
+
+            .testimonials::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url('https://www.transparenttextures.com/patterns/brushed-alum.png');
+                opacity: 0.05;
+                pointer-events: none;
+            }
+
+            .testimonial-slider {
+                max-width: 900px;
+                margin: 0 auto;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .testimonials-container {
+                display: flex;
+                transition: transform 0.7s cubic-bezier(0.215, 0.61, 0.355, 1);
+            }
+
+            .testimonial {
+                min-width: 100%;
+                padding: 0 20px;
+            }
+
+            .testimonial-text {
+                font-size: 1.8rem;
+                font-style: italic;
+                margin-bottom: 40px;
+                line-height: 1.8;
+                position: relative;
+                color: var(--accent);
+                font-weight: 300;
+            }
+
+            .testimonial-text::before,
+            .testimonial-text::after {
+                content: '"';
+                font-size: 4rem;
+                color: var(--gold);
+                opacity: 0.3;
+                position: absolute;
+                font-style: normal;
+            }
+
+            .testimonial-text::before {
+                top: -30px;
+                left: -40px;
+            }
+
+            .testimonial-text::after {
+                bottom: -60px;
+                right: -40px;
+            }
+
+            .testimonial-author {
+                font-size: 1.3rem;
+                color: var(--gold);
+                margin-bottom: 5px;
+            }
+
+            .testimonial-role {
+                font-size: 1rem;
+                color: var(--accent);
+                letter-spacing: 1.5px;
+            }
+
+            .testimonial-nav {
+                display: flex;
+                justify-content: center;
+                gap: 15px;
+                margin-top: 50px;
+            }
+
+            /* Atelier Section */
+            .atelier-section {
+                display: flex;
+                gap: 60px;
+                align-items: center;
+                margin: 100px 0;
+            }
+
+            .atelier-image {
+                flex: 1;
+                height: 700px;
+                overflow: hidden;
+            }
+
+            .atelier-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+            }
+
+            .atelier-image:hover img {
+                transform: scale(1.05);
+            }
+
+            .atelier-content {
+                flex: 1;
+                padding: 60px;
+                background-color: var(--primary-dark);
+                position: relative;
+            }
+
+            .atelier-content::before {
+                content: '';
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                right: -20px;
+                bottom: -20px;
+                border: 1px solid var(--gold);
+                z-index: -1;
+                opacity: 0.5;
+            }
+
+            .atelier-content h2 {
+                font-size: 2.8rem;
+                margin-bottom: 40px;
+                font-weight: 300;
+                letter-spacing: 5px;
+                position: relative;
+                padding-bottom: 20px;
+            }
+
+            .atelier-content h2::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 80px;
+                height: 2px;
+                background-color: var(--gold);
+            }
+
+            .atelier-content p {
+                margin-bottom: 30px;
+            }
+
+            /* Newsletter */
+            .newsletter {
+                text-align: center;
+                background-color: var(--black);
+                padding: 120px 20%;
+                border-top: 1px solid var(--gray);
+                border-bottom: 1px solid var(--gray);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .newsletter::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url('https://www.transparenttextures.com/patterns/black-linen.png');
+                opacity: 0.05;
+                pointer-events: none;
+            }
+
+            .newsletter h2 {
+                font-size: 2.5rem;
+                margin-bottom: 30px;
+                font-weight: 300;
+                letter-spacing: 5px;
+                position: relative;
+                display: inline-block;
+            }
+
+            .newsletter h2::after {
+                content: '';
+                position: absolute;
+                bottom: -15px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 80px;
+                height: 2px;
+                background-color: var(--gold);
+            }
+
+            .newsletter p {
+                margin-bottom: 50px;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .newsletter-form {
+                display: flex;
+                max-width: 600px;
+                margin: 0 auto;
+                position: relative;
+            }
+
+            .newsletter-form input {
+                flex: 1;
+                padding: 20px;
+                background-color: transparent;
+                border: 1px solid var(--gray);
+                color: var(--white);
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 1.1rem;
+                outline: none;
+                transition: all 0.4s;
+            }
+
+            .newsletter-form input:focus {
+                border-color: var(--gold);
+            }
+
+            .newsletter-form input::placeholder {
+                color: var(--light-gray);
+                letter-spacing: 1px;
+            }
+
+            .newsletter-form button {
+                padding: 0 40px;
+                background-color: var(--gold);
+                color: var(--primary-dark);
+                border: none;
+                font-size: 0.95rem;
+                letter-spacing: 3px;
+                cursor: pointer;
+                transition: all 0.4s;
+                text-transform: uppercase;
+                font-weight: 500;
+            }
+
+            .newsletter-form button:hover {
+                background-color: var(--dark-gold);
+            }
+
+            /* Footer */
+            .footer {
+                background-color: var(--black);
+                padding: 100px 8% 50px;
+                position: relative;
+            }
+
+            .footer::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            }
+
+            .footer-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 60px;
+                margin-bottom: 80px;
+            }
+
+            .footer-column h3 {
+                font-size: 1.3rem;
+                margin-bottom: 30px;
+                font-weight: 300;
+                letter-spacing: 3px;
+                position: relative;
+                padding-bottom: 15px;
+                text-transform: uppercase;
+            }
+
+            .footer-column h3::after {
+                content: '';
+                position: absolute;
+                width: 50px;
+                height: 1px;
+                background-color: var(--gold);
+                bottom: 0;
+                left: 0;
+            }
+
+            .footer-column ul {
+                list-style: none;
+            }
+
+            .footer-column ul li {
+                margin-bottom: 18px;
+            }
+
+            .footer-column ul li a {
+                color: var(--accent);
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 1.2rem;
+                transition: all 0.4s;
+                position: relative;
+                padding-left: 0;
+            }
+
+            .footer-column ul li a::before {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                width: 0;
+                height: 1px;
+                background-color: var(--gold);
+                transition: width 0.4s;
+            }
+
+            .footer-column ul li a:hover {
+                color: var(--gold);
+                padding-left: 10px;
+            }
+
+            .footer-column ul li a:hover::before {
+                width: 5px;
+            }
+
+            .social-links {
+                display: flex;
+                gap: 25px;
+                margin-top: 30px;
+            }
+
+            .social-links a {
+                color: var(--accent);
+                font-size: 1.3rem;
+                transition: all 0.4s;
+            }
+
+            .social-links a:hover {
+                color: var(--gold);
+                transform: translateY(-3px);
+            }
+
+            .footer-bottom {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-top: 50px;
+                border-top: 1px solid var(--gray);
+            }
+
+            .footer-bottom p {
+                font-size: 0.9rem;
+                color: var(--light-gray);
+                letter-spacing: 1px;
+            }
+
+            .payment-methods {
+                display: flex;
+                gap: 20px;
+            }
+
+            .payment-methods i {
+                font-size: 1.8rem;
+                color: var(--light-gray);
+                transition: color 0.3s;
+            }
+
+            .payment-methods i:hover {
+                color: var(--gold);
+            }
+
+            /* Back to Top */
+            .back-to-top {
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                width: 50px;
+                height: 50px;
+                background-color: var(--primary-dark);
+                color: var(--gold);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.3rem;
+                cursor: pointer;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.4s;
+                z-index: 999;
+                border: 1px solid var(--gold);
+            }
+
+            .back-to-top.visible {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .back-to-top:hover {
+                background-color: var(--gold);
+                color: var(--primary-dark);
+            }
+
+            /* Responsive Styles */
+            @media (max-width: 1600px) {
+                .watches-container {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+
+            @media (max-width: 1400px) {
+                .hero h1 {
+                    font-size: 4.5rem;
+                }
+                
+                .couture-content h2 {
+                    font-size: 3rem;
+                }
+            }
+
+            @media (max-width: 1200px) {
+                .collections-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+                
+                .product-card {
+                    min-width: calc(50% - 20px);
+                }
+                
+                .watches-container {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+                
+                .atelier-section {
+                    flex-direction: column;
+                }
+                
+                .atelier-image, .atelier-content {
+                    width: 100%;
+                }
+            }
+
+            @media (max-width: 992px) {
+                .nav-links {
+                    display: none;
+                }
+                
+                .mobile-menu-btn {
+                    display: block;
+                }
+                
+                .mens-section {
+                    flex-direction: column;
+                }
+                
+                .mens-image, .mens-content {
+                    width: 100%;
+                }
+                
+                .footer-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+                
+                .newsletter {
+                    padding: 100px 10%;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .hero h1 {
+                    font-size: 3.5rem;
+                }
+                
+                .collections-grid {
+                    grid-template-columns: 1fr;
+                }
+                
+                .product-card {
+                    min-width: 100%;
+                }
+                
+                .watches-container {
+                    grid-template-columns: 1fr;
+                }
+                
+                .couture-content {
+                    margin-left: 5%;
+                    padding-right: 5%;
+                }
+                
+                .couture-content h2 {
+                    font-size: 2.5rem;
+                }
+                
+                .section-title h2 {
+                    font-size: 2.5rem;
+                }
+                
+                .newsletter-form {
+                    flex-direction: column;
+                    gap: 15px;
+                }
+                
+                .newsletter-form input,
+                .newsletter-form button {
+                    width: 100%;
+                }
+            }
+
+            @media (max-width: 576px) {
+                .hero h1 {
+                    font-size: 2.8rem;
+                    letter-spacing: 5px;
+                }
+                
+                .hero p {
+                    font-size: 1.2rem;
+                }
+                
+                .hero-btns {
+                    flex-direction: column;
+                    gap: 15px;
+                }
+                
+                .section {
+                    padding: 80px 5%;
+                }
+                
+                .section-title h2 {
+                    font-size: 2rem;
+                }
+                
+                .footer-grid {
+                    grid-template-columns: 1fr;
+                }
+                
+                .footer-bottom {
+                    flex-direction: column;
+                    gap: 25px;
+                    text-align: center;
+                }
+            }
+
+            /* Animation */
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(30px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            .fade-in {
+                opacity: 0;
+                animation: fadeIn 1.2s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+            }
+
+            .delay-1 { animation-delay: 0.3s; }
+            .delay-2 { animation-delay: 0.6s; }
+            .delay-3 { animation-delay: 0.9s; }
+            .delay-4 { animation-delay: 1.2s; }
+            .delay-5 { animation-delay: 1.5s; }
+
+            /* Page Load Animation */
+            @keyframes pageLoad {
+                from { opacity: 0; transform: translateY(50px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            body.loaded .header,
+            body.loaded .announcement-bar {
+                animation: pageLoad 1s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+            }
+
+            body.loaded .hero-content {
+                animation: pageLoad 1.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0.3s forwards;
+                opacity: 0;
+            }
+        
+    </style>
+</head>
+<body>
+    
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        BY APPOINTMENT ONLY • PRIVATE SHOWINGS AVAILABLE IN OUR GLOBAL SALONS
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <a href="#" class="logo">ÉCLAT</a>
+        
+        <nav class="nav-links">
+            <a href="#">WOMEN</a>
+            <a href="#">MEN</a>
+            <a href="#">HAUTE COUTURE</a>
+            <a href="#">WORLD OF ÉCLAT</a>
+        </nav>
+        
+        <div class="header-icons">
+            <a href="#"><i class="fas fa-search"></i></a>
+            <a href="#"><i class="fas fa-user"></i></a>
+            <a href="#"><i class="fas fa-shopping-bag"></i><span class="cart-count">3</span></a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="fade-in">ELEGANCE REDEFINED</h1>
+            <p class="fade-in delay-1">The Spring/Summer 2023 collection presents a symphony of craftsmanship, where each piece tells a story of unparalleled luxury and timeless sophistication.</p>
+            <div class="hero-btns fade-in delay-2">
+                <a href="#" class="btn">DISCOVER MORE</a>
+                <a href="#" class="btn btn-accent">BOOK A PRIVATE VIEWING</a>
+            </div>
+        </div>
+        <div class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Collections Section -->
+    <section class="section">
+        <div class="section-title">
+            <h2>CURATED COLLECTIONS</h2>
+            <p>Each Éclat collection is a testament to the art of fine craftsmanship, where tradition meets innovation in perfect harmony.</p>
+        </div>
+        
+        <div class="collections-grid">
+            <div class="collection-card fade-in">
+                <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Spring Collection">
+                <div class="collection-overlay">
+                    <h3>Spring 2023</h3>
+                    <p>A celebration of renewal and vibrant energy through meticulously crafted silhouettes</p>
+                    <a href="#" class="btn btn-gold">VIEW COLLECTION</a>
+                </div>
+            </div>
+            
+            <div class="collection-card fade-in delay-1">
+                <img src="https://images.unsplash.com/photo-1554412933-514a83d2f3c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80" alt="Haute Couture">
+                <div class="collection-overlay">
+                    <h3>Haute Couture</h3>
+                    <p>The pinnacle of craftsmanship and exclusivity, made to measure for the discerning client</p>
+                    <a href="#" class="btn btn-gold">VIEW COLLECTION</a>
+                </div>
+            </div>
+            
+            <div class="collection-card fade-in delay-2">
+                <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Accessories">
+                <div class="collection-overlay">
+                    <h3>Signature Accessories</h3>
+                    <p>Finishing touches for the discerning individual, crafted with the same exacting standards</p>
+                    <a href="#" class="btn btn-gold">VIEW COLLECTION</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Featured Products -->
+    <section class="section featured-products">
+        <div class="section-title">
+            <h2>EDITOR'S SELECTION</h2>
+            <p>Curated pieces from our creative director</p>
+        </div>
+        
+        <div class="products-slider">
+            <div class="products-container" id="productsContainer">
+                <!-- Products will be loaded dynamically via JavaScript -->
+            </div>
+            
+            <div class="slider-nav">
+                <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="slider-dots" id="sliderDots">
+                    <!-- Dots will be added dynamically -->
+                </div>
+                <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Couture Experience -->
+    <section class="couture-experience">
+        <div class="couture-content">
+            <h2>THE COUTURE EXPERIENCE</h2>
+            <p>Éclat Couture offers an unparalleled private shopping experience in our flagship boutiques. Our personal shoppers will guide you through the collection in a discreet, luxurious setting.</p>
+            <div class="couture-features">
+                <div class="feature">
+                    <i class="fas fa-calendar-check"></i>
+                    <h4>BY APPOINTMENT ONLY</h4>
+                    <p>Exclusive access to our private salons</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-cut"></i>
+                    <h4>BESPOKE ALTERATIONS</h4>
+                    <p>Tailored to your exact measurements</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-gem"></i>
+                    <h4>PRIVATE VIEWINGS</h4>
+                    <p>Early access to new collections</p>
+                </div>
+            </div>
+            <a href="#" class="btn btn-gold">REQUEST AN APPOINTMENT</a>
+        </div>
+        <div class="couture-image"></div>
+    </section>
+
+    <!-- Men's Luxury Section -->
+    <section class="mens-luxury">
+        <div class="mens-content">
+            <h2>FOR THE DISCERNING GENTLEMAN</h2>
+            <p>Éclat Couture presents an exclusive men's collection featuring bespoke tailoring, Swiss-made timepieces, and accessories crafted with the same attention to detail as our women's collections.</p>
+            
+            <div class="mens-categories">
+                <div class="category">
+                    <h4>BESPOKE TAILORING</h4>
+                    <p>Handcrafted suits starting from $12,000</p>
+                    <a href="#">Explore</a>
+                </div>
+                <div class="category">
+                    <h4>LIMITED TIMEPIECES</h4>
+                    <p>Swiss-made with rare complications</p>
+                    <a href="#">Explore</a>
+                </div>
+                <div class="category">
+                    <h4>LEATHER GOODS</h4>
+                    <p>Crafted from exotic hides</p>
+                    <a href="#">Explore</a>
+                </div>
+            </div>
+            
+            <div class="watch-highlight">
+                <div class="watch-image">
+                    <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Éclat Grand Complication">
+                </div>
+                <div class="watch-details">
+                    <h3>ÉCLAT GRAND COMPLICATION</h3>
+                    <p class="price">$285,000</p>
+                    <p>This exceptional timepiece features a perpetual calendar, minute repeater, and tourbillon, all hand-finished by our master watchmakers.</p>
+                    <div class="watch-features">
+                        <div class="feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Manual Winding</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-gem"></i>
+                            <span>Platinum Case</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-eye"></i>
+                            <span>Sapphire Crystal</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-gold">INQUIRE</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials">
+        <div class="section-title">
+            <h2>OUR DISTINGUISHED CLIENTS</h2>
+            <p>Hear from those who have experienced Éclat</p>
+        </div>
+        
+        <div class="testimonial-slider">
+            <div class="testimonials-container" id="testimonialsContainer">
+                <!-- Testimonials will be loaded dynamically -->
+            </div>
+            
+            <div class="testimonial-nav">
+                <button class="testimonial-prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="testimonial-dots" id="testimonialDots">
+                    <!-- Dots will be added dynamically -->
+                </div>
+                <button class="testimonial-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="newsletter-content">
+            <h2>JOIN OUR WORLD</h2>
+            <p>Subscribe to receive exclusive access to private sales, couture presentations, and the latest from our ateliers.</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <div class="form-group">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn btn-gold">SUBSCRIBE</button>
+                </div>
+                <div class="form-checkbox">
+                    <input type="checkbox" id="vipOptIn" checked>
+                    <label for="vipOptIn">Also enroll me in the VIP program for exclusive benefits</label>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Flagship Locations -->
+    <section class="flagship-locations">
+        <div class="section-title">
+            <h2>OUR FLAGSHIP BOUTIQUES</h2>
+            <p>Experience Éclat in person at these exclusive locations</p>
+        </div>
+        
+        <div class="locations-grid">
+            <div class="location-card">
+                <div class="location-image" style="background-image: url('https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"></div>
+                <div class="location-info">
+                    <h3>PARIS</h3>
+                    <p>18 Avenue Montaigne, 75008</p>
+                    <p>+33 1 53 67 08 08</p>
+                    <a href="#" class="btn btn-white">BOOK APPOINTMENT</a>
+                </div>
+            </div>
+            
+            <div class="location-card">
+                <div class="location-image" style="background-image: url('https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"></div>
+                <div class="location-info">
+                    <h3>NEW YORK</h3>
+                    <p>724 Fifth Avenue, 10019</p>
+                    <p>+1 212 826 8080</p>
+                    <a href="#" class="btn btn-white">BOOK APPOINTMENT</a>
+                </div>
+            </div>
+            
+            <div class="location-card">
+                <div class="location-image" style="background-image: url('https://images.unsplash.com/photo-1533929736458-ca588d08c8be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"></div>
+                <div class="location-info">
+                    <h3>LONDON</h3>
+                    <p>160 New Bond Street, W1S 2UE</p>
+                    <p>+44 20 7493 8080</p>
+                    <a href="#" class="btn btn-white">BOOK APPOINTMENT</a>
+                </div>
+            </div>
+            
+            <div class="location-card">
+                <div class="location-image" style="background-image: url('https://images.unsplash.com/photo-1533107862482-0e6974b06ec4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1620&q=80')"></div>
+                <div class="location-info">
+                    <h3>TOKYO</h3>
+                    <p>5-5-8 Ginza, Chuo-ku, 104-0061</p>
+                    <p>+81 3 5568 8080</p>
+                    <a href="#" class="btn btn-white">BOOK APPOINTMENT</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-main">
+                <div class="footer-logo">
+                    <a href="index.html" class="logo">ÉCLAT</a>
+                    <p>Since 1892</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-weibo"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="link-column">
+                        <h4>SHOP</h4>
+                        <a href="#">Women</a>
+                        <a href="#">Men</a>
+                        <a href="#">Jewelry</a>
+                        <a href="#">Timepieces</a>
+                        <a href="#">Accessories</a>
+                        <a href="#">Couture</a>
+                    </div>
+                    
+                    <div class="link-column">
+                        <h4>SERVICES</h4>
+                        <a href="#">Personal Shopping</a>
+                        <a href="#">Bespoke Tailoring</a>
+                        <a href="#">Wedding Services</a>
+                        <a href="#">VIP Program</a>
+                        <a href="#">Repairs</a>
+                        <a href="#">Authentication</a>
+                    </div>
+                    
+                    <div class="link-column">
+                        <h4>ABOUT</h4>
+                        <a href="#">Our Heritage</a>
+                        <a href="#">Craftsmanship</a>
+                        <a href="#">Sustainability</a>
+                        <a href="#">Art Foundation</a>
+                        <a href="#">Press</a>
+                        <a href="#">Careers</a>
+                    </div>
+                    
+                    <div class="link-column">
+                        <h4>LEGAL</h4>
+                        <a href="#">Terms & Conditions</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Cookie Policy</a>
+                        <a href="#">Accessibility</a>
+                        <a href="#">Modern Slavery Act</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-newsletter">
+                <h4>STAY CONNECTED</h4>
+                <form class="footer-newsletter-form">
+                    <input type="email" placeholder="Email Address">
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2023 ÉCLAT COUTURE. ALL RIGHTS RESERVED.</p>
+            <div class="payment-methods">
+                <i class="fab fa-cc-amex"></i>
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-paypal"></i>
+                <i class="fab fa-cc-jcb"></i>
+                <i class="fab fa-cc-discover"></i>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- Couture Experience  stop here -->
+    <section class="couture-experience">
+        <div class="couture-content">
+            <h2 class="fade-in">THE ART OF HAUTE COUTURE</h2>
+            <p class="fade-in delay-1">Experience the rarefied world of Éclat Haute Couture, where each garment is a unique masterpiece crafted by our artisans in Paris. With over 800 hours of meticulous handwork in each piece, our atelier creates fewer than 50 couture garments per season, ensuring exclusivity of the highest order.</p>
+            <a href="#" class="btn fade-in delay-2">REQUEST A PRIVATE APPOINTMENT</a>
+        </div>
+    </section>
+
+    <!-- Back to Top -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+
+
+        // Preloader
+window.addEventListener('load', function() {
+    const preloader = document.querySelector('.preloader');
+    const container = document.querySelector('.container');
+    
+    // Simulate loading delay
+    setTimeout(() => {
+        preloader.style.opacity = '0';
+        preloader.style.visibility = 'hidden';
+        
+        container.classList.add('loaded');
+        
+        // Initialize animations after preloader hides
+        setTimeout(() => {
+            initAnimations();
+            initSwiper();
+        }, 500);
+    }, 2500);
+}); 
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            mobileMenuBtn.innerHTML = navLinks.style.display === 'flex' ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Product Slider
+        const productsContainer = document.querySelector('.products-container');
+        const productCards = document.querySelectorAll('.product-card');
+        const productDots = document.querySelectorAll('.products-slider .slider-dot');
+        let currentProductIndex = 0;
+        let productInterval;
+        
+        function updateProductSlider() {
+            const cardWidth = productCards[0].offsetWidth + 40; // including gap
+            const offset = -currentProductIndex * cardWidth;
+            productsContainer.style.transform = `translateX(${offset}px)`;
+            
+            productDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentProductIndex);
+            });
+        }
+        
+        function startProductSlider() {
+            productInterval = setInterval(() => {
+                currentProductIndex = (currentProductIndex + 1) % productDots.length;
+                updateProductSlider();
+            }, 5000);
+        }
+        
+        productDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                clearInterval(productInterval);
+                currentProductIndex = index;
+                updateProductSlider();
+                startProductSlider();
+            });
+        });
+        
+        startProductSlider();
+        
+        // Testimonial Slider
+        const testimonialsContainer = document.querySelector('.testimonials-container');
+        const testimonialSlides = document.querySelectorAll('.testimonial');
+        const testimonialDots = document.querySelectorAll('.testimonial-nav .slider-dot');
+        let currentTestimonialIndex = 0;
+        let testimonialInterval;
+        
+        function updateTestimonialSlider() {
+            const offset = -currentTestimonialIndex * 100;
+            testimonialsContainer.style.transform = `translateX(${offset}%)`;
+            
+            testimonialDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentTestimonialIndex);
+            });
+        }
+        
+        function startTestimonialSlider() {
+            testimonialInterval = setInterval(() => {
+                currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonialDots.length;
+                updateTestimonialSlider();
+            }, 7000);
+        }
+        
+        testimonialDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                clearInterval(testimonialInterval);
+                currentTestimonialIndex = index;
+                updateTestimonialSlider();
+                startTestimonialSlider();
+            });
+        });
+        
+        startTestimonialSlider();
+        
+        // Scroll animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        function checkScroll() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        // Back to Top Button
+        const backToTopBtn = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+            
+            checkScroll();
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Scroll Down Button
+        const scrollDownBtn = document.querySelector('.scroll-down');
+        
+        scrollDownBtn.addEventListener('click', () => {
+            document.querySelector('.section').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+        
+        // Page Load Animation
+        document.body.classList.add('loaded');
+        
+        // Initialize animations on load
+        window.addEventListener('load', () => {
+            checkScroll();
+        });
+    </script>
+</body>
+</html>

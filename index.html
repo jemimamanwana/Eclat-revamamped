@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ÉCLAT — By Invitation Only</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Italiana&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Film Grain Overlay -->
+    <div class="grain-overlay"></div>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-line preloader-line-top"></div>
+            <div class="preloader-brand">
+                <span class="preloader-letter" style="--i:0">É</span>
+                <span class="preloader-letter" style="--i:1">C</span>
+                <span class="preloader-letter" style="--i:2">L</span>
+                <span class="preloader-letter" style="--i:3">A</span>
+                <span class="preloader-letter" style="--i:4">T</span>
+            </div>
+            <div class="preloader-tagline">MAISON DE HAUTE COUTURE — PARIS</div>
+            <div class="preloader-year">EST. 1892</div>
+            <div class="preloader-line preloader-line-bottom"></div>
+        </div>
+    </div>
+
+    <!-- VIP Access Modal -->
+    <div class="vip-modal" id="vipModal">
+        <div class="vip-modal-content">
+            <span class="close-vip">&times;</span>
+            <div class="vip-modal-body">
+                <div class="vip-crest">
+                    <svg viewBox="0 0 100 100" width="60" height="60">
+                        <polygon points="50,5 61,35 95,35 67,55 78,85 50,67 22,85 33,55 5,35 39,35" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                    </svg>
+                </div>
+                <h3>PRIVATE ACCESS</h3>
+                <div class="vip-divider"></div>
+                <p class="vip-subtitle">BY INVITATION ONLY</p>
+                <p class="vip-desc">Request a personal consultation with our maison. Private showings available in Paris, New York, London, and Tokyo.</p>
+                <form id="vipForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Full Name" required>
+                        <div class="input-line"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email Address" required>
+                        <div class="input-line"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Phone Number" required>
+                        <div class="input-line"></div>
+                    </div>
+                    <button type="submit" class="btn btn-gold magnetic">REQUEST PRIVATE ACCESS</button>
+                </form>
+                <p class="small-text">Discretion assured. Your information is held in strictest confidence.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <span class="announcement-text">BY APPOINTMENT ONLY&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;PRIVATE SHOWINGS IN OUR GLOBAL SALONS&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;COMPLIMENTARY WHITE-GLOVE DELIVERY</span>
+    </div>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>YOUR SELECTIONS</h3>
+            <span class="close-cart">&times;</span>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-total">
+            <div class="cart-total-line">
+                <span>TOTAL</span>
+                <span id="cartTotal">$0.00</span>
+            </div>
+            <a href="#" class="btn btn-gold magnetic">PROCEED TO CHECKOUT</a>
+            <p class="cart-note">Complimentary gift wrapping & worldwide express shipping</p>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="header" id="mainHeader">
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <span class="menu-line"></span>
+            <span class="menu-line"></span>
+        </button>
+
+        <a href="index.html" class="logo">ÉCLAT</a>
+
+        <nav class="nav-links" id="navLinks">
+            <div class="nav-column">
+                <h4 class="magnetic">WOMEN</h4>
+            </div>
+            <div class="nav-column">
+                <h4 class="magnetic">MEN</h4>
+            </div>
+            <div class="nav-column">
+                <h4 class="magnetic">HAUTE COUTURE</h4>
+            </div>
+            <div class="nav-column">
+                <h4 class="magnetic">WORLD OF ÉCLAT</h4>
+            </div>
+        </nav>
+
+        <div class="header-icons">
+            <a href="#" id="searchBtn" class="header-icon magnetic"><i class="fas fa-search"></i></a>
+            <a href="#" id="accountBtn" class="header-icon magnetic"><i class="fas fa-user"></i></a>
+            <a href="#" id="cartBtn" class="header-icon magnetic"><i class="fas fa-shopping-bag"></i><span class="cart-count">0</span></a>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-bar" id="searchBar">
+            <input type="text" placeholder="SEARCH THE MAISON...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-slideshow">
+            <div class="hero-slide active">
+                <div class="hero-slide-bg" style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1920&q=80')"></div>
+                <div class="hero-content">
+                    <div class="hero-label reveal-text">SPRING COUTURE 2025</div>
+                    <h1 class="hero-title">
+                        <span class="title-line reveal-text" style="--delay: 0.2s">The Art of</span>
+                        <span class="title-line title-italic reveal-text" style="--delay: 0.4s">Timeless</span>
+                        <span class="title-line reveal-text" style="--delay: 0.6s">Elegance</span>
+                    </h1>
+                    <p class="hero-desc reveal-text" style="--delay: 0.8s">French craftsmanship meets modern sophistication in our latest collection.</p>
+                    <a href="#" class="btn btn-hero magnetic reveal-text" style="--delay: 1s">DISCOVER THE COLLECTION</a>
+                </div>
+            </div>
+            <div class="hero-slide">
+                <div class="hero-slide-bg" style="background-image: url('https://images.unsplash.com/photo-1617137968427-85924c800a22?w=1920&q=80')"></div>
+                <div class="hero-content">
+                    <div class="hero-label">LIMITED EDITION</div>
+                    <h1 class="hero-title">
+                        <span class="title-line">Haute</span>
+                        <span class="title-line title-italic">Horlogerie</span>
+                    </h1>
+                    <p class="hero-desc">Swiss-made excellence. Complications crafted for the connoisseur.</p>
+                    <a href="#" class="btn btn-hero magnetic">EXPLORE TIMEPIECES</a>
+                </div>
+            </div>
+            <div class="hero-slide">
+                <div class="hero-slide-bg" style="background-image: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1920&q=80')"></div>
+                <div class="hero-content">
+                    <div class="hero-label">ONE OF ONE</div>
+                    <h1 class="hero-title">
+                        <span class="title-line">High</span>
+                        <span class="title-line title-italic">Jewelry</span>
+                    </h1>
+                    <p class="hero-desc">Rare gems. Exclusive designs. For the most discerning collectors.</p>
+                    <a href="#" class="btn btn-hero magnetic">VIEW THE COLLECTION</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-nav">
+            <button class="hero-prev magnetic"><i class="fas fa-chevron-left"></i></button>
+            <div class="hero-counter">
+                <span class="hero-current">01</span>
+                <span class="hero-divider"></span>
+                <span class="hero-total">03</span>
+            </div>
+            <button class="hero-next magnetic"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span>SCROLL</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Maison Statement -->
+    <section class="maison-statement" data-scroll-section>
+        <div class="statement-inner">
+            <div class="statement-line" data-scroll-reveal></div>
+            <p class="statement-text" data-scroll-reveal>
+                Since 1892, Éclat has defined the art of French luxury — crafting pieces of extraordinary beauty for those who understand that true elegance is not worn, but <em>inhabited</em>.
+            </p>
+            <div class="statement-line" data-scroll-reveal></div>
+        </div>
+    </section>
+
+    <!-- Collections Section — Horizontal Scroll -->
+    <section class="section collections-section" data-scroll-section>
+        <div class="section-title" data-scroll-reveal>
+            <span class="section-label">THE HOUSE</span>
+            <h2>OUR COLLECTIONS</h2>
+            <p>Each season, a new interpretation of the Éclat aesthetic.</p>
+        </div>
+
+        <div class="collections-horizontal-wrapper">
+            <div class="collections-horizontal" id="collectionsScroll">
+                <div class="collection-card" data-scroll-reveal>
+                    <div class="collection-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80" alt="Spring Collection">
+                    </div>
+                    <div class="collection-info">
+                        <span class="collection-number">01</span>
+                        <h3>Spring Couture</h3>
+                        <p>A celebration of renewal</p>
+                        <a href="#" class="collection-link magnetic">DISCOVER <span class="link-arrow">→</span></a>
+                    </div>
+                </div>
+
+                <div class="collection-card" data-scroll-reveal>
+                    <div class="collection-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=800&q=80" alt="Haute Couture">
+                    </div>
+                    <div class="collection-info">
+                        <span class="collection-number">02</span>
+                        <h3>Haute Couture</h3>
+                        <p>The pinnacle of craft</p>
+                        <a href="#" class="collection-link magnetic">DISCOVER <span class="link-arrow">→</span></a>
+                    </div>
+                </div>
+
+                <div class="collection-card" data-scroll-reveal>
+                    <div class="collection-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=800&q=80" alt="Accessories">
+                    </div>
+                    <div class="collection-info">
+                        <span class="collection-number">03</span>
+                        <h3>Accessories</h3>
+                        <p>The finishing touch</p>
+                        <a href="#" class="collection-link magnetic">DISCOVER <span class="link-arrow">→</span></a>
+                    </div>
+                </div>
+
+                <div class="collection-card" data-scroll-reveal>
+                    <div class="collection-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=800&q=80" alt="Jewelry">
+                    </div>
+                    <div class="collection-info">
+                        <span class="collection-number">04</span>
+                        <h3>High Jewelry</h3>
+                        <p>Rare gems, exclusive designs</p>
+                        <a href="#" class="collection-link magnetic">DISCOVER <span class="link-arrow">→</span></a>
+                    </div>
+                </div>
+
+                <div class="collection-card" data-scroll-reveal>
+                    <div class="collection-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&q=80" alt="Men's Collection">
+                    </div>
+                    <div class="collection-info">
+                        <span class="collection-number">05</span>
+                        <h3>Men's Tailoring</h3>
+                        <p>Bespoke precision</p>
+                        <a href="#" class="collection-link magnetic">DISCOVER <span class="link-arrow">→</span></a>
+                    </div>
+                </div>
+
+                <div class="collection-card" data-scroll-reveal>
+                    <div class="collection-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=800&q=80" alt="Winter Collection">
+                    </div>
+                    <div class="collection-info">
+                        <span class="collection-number">06</span>
+                        <h3>Winter 2025</h3>
+                        <p>Luxurious warmth</p>
+                        <a href="#" class="collection-link magnetic">DISCOVER <span class="link-arrow">→</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="horizontal-scroll-hint">
+            <span>DRAG TO EXPLORE</span>
+            <div class="scroll-progress"><div class="scroll-progress-bar" id="scrollProgressBar"></div></div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="section featured-products" data-scroll-section>
+        <div class="section-title" data-scroll-reveal>
+            <span class="section-label">CURATED</span>
+            <h2>EDITOR'S SELECTION</h2>
+            <p>Handpicked pieces from our creative director</p>
+        </div>
+
+        <div class="products-slider">
+            <div class="products-container" id="productsContainer"></div>
+
+            <div class="slider-nav">
+                <button class="slider-prev magnetic"><i class="fas fa-chevron-left"></i></button>
+                <div class="slider-dots" id="sliderDots"></div>
+                <button class="slider-next magnetic"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Couture Experience -->
+    <section class="couture-experience" data-scroll-section>
+        <div class="couture-content" data-scroll-reveal>
+            <span class="section-label">THE EXPERIENCE</span>
+            <h2>PRIVATE COUTURE</h2>
+            <p class="couture-desc">Éclat offers an unparalleled private shopping experience in our flagship salons. Your personal atelier guide will curate a bespoke selection in complete discretion.</p>
+            <div class="couture-features">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h4>BY APPOINTMENT</h4>
+                    <p>Private access to our salons</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h4>BESPOKE</h4>
+                    <p>Tailored to your measurements</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h4>FIRST ACCESS</h4>
+                    <p>Preview collections before launch</p>
+                </div>
+            </div>
+            <a href="#" class="btn btn-gold magnetic">REQUEST AN APPOINTMENT</a>
+        </div>
+        <div class="couture-image" data-scroll-reveal>
+            <div class="couture-image-inner" style="background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&q=80')"></div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials" data-scroll-section>
+        <div class="section-title" data-scroll-reveal>
+            <span class="section-label">VOICES</span>
+            <h2>OUR DISTINGUISHED CLIENTS</h2>
+        </div>
+
+        <div class="testimonial-slider">
+            <div class="testimonials-container" id="testimonialsContainer"></div>
+            <div class="testimonial-nav">
+                <button class="testimonial-prev magnetic"><i class="fas fa-chevron-left"></i></button>
+                <div class="testimonial-dots" id="testimonialDots"></div>
+                <button class="testimonial-next magnetic"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter" data-scroll-section>
+        <div class="newsletter-content" data-scroll-reveal>
+            <span class="section-label">INNER CIRCLE</span>
+            <h2>JOIN OUR WORLD</h2>
+            <p>Receive exclusive access to private sales, couture presentations, and dispatches from our ateliers.</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <div class="form-group newsletter-input-group">
+                    <input type="email" placeholder="Your email address" required>
+                    <div class="input-line"></div>
+                    <button type="submit" class="btn btn-gold magnetic">SUBSCRIBE</button>
+                </div>
+                <div class="form-checkbox">
+                    <input type="checkbox" id="vipOptIn" checked>
+                    <label for="vipOptIn">Enroll me in the VIP program for exclusive privileges</label>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Flagship Locations -->
+    <section class="flagship-locations" data-scroll-section>
+        <div class="section-title" data-scroll-reveal>
+            <span class="section-label">VISIT US</span>
+            <h2>FLAGSHIP SALONS</h2>
+            <p>Experience Éclat in person</p>
+        </div>
+
+        <div class="locations-grid">
+            <div class="location-card" data-scroll-reveal>
+                <div class="location-image" style="background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=80')"></div>
+                <div class="location-info">
+                    <h3>PARIS</h3>
+                    <p>18 Avenue Montaigne, 75008</p>
+                    <p class="location-phone">+33 1 53 67 08 08</p>
+                    <a href="#" class="btn btn-outline magnetic">BOOK APPOINTMENT</a>
+                </div>
+            </div>
+
+            <div class="location-card" data-scroll-reveal>
+                <div class="location-image" style="background-image: url('https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800&q=80')"></div>
+                <div class="location-info">
+                    <h3>NEW YORK</h3>
+                    <p>724 Fifth Avenue, 10019</p>
+                    <p class="location-phone">+1 212 826 8080</p>
+                    <a href="#" class="btn btn-outline magnetic">BOOK APPOINTMENT</a>
+                </div>
+            </div>
+
+            <div class="location-card" data-scroll-reveal>
+                <div class="location-image" style="background-image: url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80')"></div>
+                <div class="location-info">
+                    <h3>LONDON</h3>
+                    <p>160 New Bond Street, W1S 2UE</p>
+                    <p class="location-phone">+44 20 7493 8080</p>
+                    <a href="#" class="btn btn-outline magnetic">BOOK APPOINTMENT</a>
+                </div>
+            </div>
+
+            <div class="location-card" data-scroll-reveal>
+                <div class="location-image" style="background-image: url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80')"></div>
+                <div class="location-info">
+                    <h3>TOKYO</h3>
+                    <p>5-5-8 Ginza, Chuo-ku, 104-0061</p>
+                    <p class="location-phone">+81 3 5568 8080</p>
+                    <a href="#" class="btn btn-outline magnetic">BOOK APPOINTMENT</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" data-scroll-section>
+        <div class="footer-content">
+            <div class="footer-main">
+                <div class="footer-logo">
+                    <a href="index.html" class="logo footer-brand">ÉCLAT</a>
+                    <p class="footer-since">MAISON DE COUTURE — SINCE 1892</p>
+                    <div class="social-links">
+                        <a href="#" class="magnetic"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="magnetic"><i class="fab fa-pinterest"></i></a>
+                        <a href="#" class="magnetic"><i class="fab fa-weixin"></i></a>
+                        <a href="#" class="magnetic"><i class="fab fa-weibo"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <div class="link-column">
+                        <h4>SHOP</h4>
+                        <a href="#">Women</a>
+                        <a href="#">Men</a>
+                        <a href="#">Jewelry</a>
+                        <a href="#">Timepieces</a>
+                        <a href="#">Accessories</a>
+                        <a href="#">Couture</a>
+                    </div>
+
+                    <div class="link-column">
+                        <h4>SERVICES</h4>
+                        <a href="#">Personal Shopping</a>
+                        <a href="#">Bespoke Tailoring</a>
+                        <a href="#">Wedding Atelier</a>
+                        <a href="#">VIP Programme</a>
+                        <a href="#">Restoration</a>
+                        <a href="#">Authentication</a>
+                    </div>
+
+                    <div class="link-column">
+                        <h4>THE MAISON</h4>
+                        <a href="#">Our Heritage</a>
+                        <a href="#">Craftsmanship</a>
+                        <a href="#">Sustainability</a>
+                        <a href="#">Art Foundation</a>
+                        <a href="#">Press</a>
+                        <a href="#">Careers</a>
+                    </div>
+
+                    <div class="link-column">
+                        <h4>LEGAL</h4>
+                        <a href="#">Terms &amp; Conditions</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Cookie Policy</a>
+                        <a href="#">Accessibility</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 ÉCLAT COUTURE. ALL RIGHTS RESERVED.</p>
+            <div class="payment-methods">
+                <i class="fab fa-cc-amex"></i>
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-apple-pay"></i>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
